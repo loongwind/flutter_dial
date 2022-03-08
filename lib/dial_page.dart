@@ -20,10 +20,8 @@ class _DialPageState extends State<DialPage> {
   void initState() {
     super.initState();
 
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-
-      });
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {});
     });
   }
 

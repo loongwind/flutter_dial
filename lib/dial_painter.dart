@@ -45,7 +45,7 @@ class DialPainter extends CustomPainter{
   void initSize(Size size) {
     width = size.width;
     height = size.height;
-    radius = width / 2 -20;
+    radius = min(width, height) / 2;
     unit = radius / 15;
   }
 
@@ -180,17 +180,17 @@ class DialPainter extends CustomPainter{
 
     /// 绘制一层径向渐变的圆
     var radialGradient = ui.Gradient.radial(Offset(width/2, height/2), radius, [
-      const Color.fromARGB(255, 246, 248, 249),
-      const Color.fromARGB(255, 229, 235, 238),
-      const Color.fromARGB(255,205, 212, 217),
-      const Color.fromARGB(255,245, 247, 249),
+      const Color.fromARGB(216, 246, 248, 249),
+      const Color.fromARGB(216, 229, 235, 238),
+      const Color.fromARGB(216,205, 212, 217),
+      const Color.fromARGB(216,245, 247, 249),
     ], [0, 0.92, 0.93, 1.0]);
 
-    var shadowRadius = radius -  0.8 * unit;
     _paint.shader = radialGradient;
     canvas.drawCircle(Offset(width/2, height/2), radius -  0.3 * unit, _paint);
 
     /// 绘制一层border
+    var shadowRadius = radius -  0.8 * unit;
     _paint
       ..color = const Color.fromARGB(33, 0, 0, 0)
       ..shader = null
